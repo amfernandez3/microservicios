@@ -1,4 +1,6 @@
 package com.cursojava.cliente.controller;
+
+import com.cursojava.cliente.model.CursoDTO;
 import com.cursojava.cliente.model.Formacion;
 import com.cursojava.cliente.service.FormacionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +19,15 @@ public class FormacionController {
 
     // Endpoint para obtener la lista de cursos desde el otro microservicio
     @GetMapping("/cursos")
-    public ResponseEntity<List<Formacion>> obtenerCursos() {
-        List<Formacion> cursos = formacionService.obtenerCursos();
+    public ResponseEntity<List<CursoDTO>> obtenerCursos() {
+        List<CursoDTO> cursos = formacionService.obtenerCursos();
         return new ResponseEntity<>(cursos, HttpStatus.OK);
     }
 
     // Endpoint para añadir un nuevo curso a través del otro microservicio
     @PostMapping("/altaCurso")
-    public ResponseEntity<Formacion> altaCurso(@RequestBody Formacion formacion) {
-        Formacion nuevaFormacion = formacionService.crearFormacion(formacion);
-        return new ResponseEntity<>(nuevaFormacion, HttpStatus.CREATED);
+    public ResponseEntity<CursoDTO> altaCurso(@RequestBody Formacion formacion) {
+        CursoDTO nuevoCursoDTO = formacionService.crearFormacion(formacion);
+        return new ResponseEntity<>(nuevoCursoDTO, HttpStatus.CREATED);
     }
 }

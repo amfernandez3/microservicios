@@ -12,6 +12,10 @@ public class ClienteApplication {
 		SpringApplication.run(ClienteApplication.class, args);
 	}
 
+	/**
+	 * Creamos un nuevo bean de configuracion de RestTemplate
+	 * @return
+	 */
 	@Bean
 	public RestTemplate template(){
 		return new RestTemplate();

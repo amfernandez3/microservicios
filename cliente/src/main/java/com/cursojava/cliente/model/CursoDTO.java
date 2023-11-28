@@ -1,4 +1,4 @@
-package com.cursojava.cursos.model;
+package com.cursojava.cliente.model;
 
 public class CursoDTO {
     private String codigoCurso;
